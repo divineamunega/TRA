@@ -1,0 +1,288 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 64.5%;
+}
+
+body {
+	width: 100%;
+	height: 100vh;
+	font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+		"Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.app {
+	display: grid;
+	grid-template-columns: 250px 10fr;
+	height: 100%;
+
+	@media screen and (max-width: 760px) {
+		grid-template-columns: 1fr;
+	}
+}
+
+.sidebar {
+	height: 100%;
+	background-color: #202123;
+	list-style: none;
+	height: 100%;
+	padding: 0rem 0rem 2rem 2rem;
+
+	@media screen and (max-width: 760px) {
+		position: fixed;
+		top: 0;
+		width: 250px;
+		display: none;
+	}
+}
+
+.main {
+	height: 100%;
+	background-color: #343541;
+	overflow-y: scroll;
+	position: relative;
+
+	&::-webkit-scrollbar {
+		width: 5px;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		border-radius: 20px;
+		height: 20px;
+		background-color: #ececf1;
+	}
+}
+
+.sidebar--header {
+	color: white;
+	font-size: 1.8rem;
+	background-color: #202123;
+	width: 100%;
+	padding: 2rem 0;
+}
+
+.sidebarlist {
+	margin-top: 1rem;
+	font-size: 1.2rem;
+	color: white;
+	overflow-y: auto;
+	height: 80vh;
+	width: 100%;
+	border-bottom: 0.5px solid rgb(189, 188, 188);
+	&::-webkit-scrollbar-thumb {
+		background-color: #ececf1;
+		border-radius: 20px;
+	}
+
+	&::-webkit-scrollbar {
+		width: 0px;
+		visibility: none;
+	}
+
+	&:hover {
+		&::-webkit-scrollbar {
+			width: 7px;
+			visibility: none;
+		}
+	}
+}
+
+.sidebarlist--item {
+	/* height: 4rem; */
+	display: flex;
+	align-items: center;
+	padding: 1.3rem 0rem;
+	cursor: pointer;
+	margin-top: 0.5rem;
+	&:hover {
+		background-color: #2a2b32;
+	}
+}
+
+.sidebar-tag {
+	width: 100%;
+	color: rgb(172, 172, 172);
+	position: sticky;
+	background-color: #202123;
+	top: 0;
+	margin: 2rem 0rem;
+}
+
+.secondNav {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	height: 20px;
+	color: white;
+	font-size: 1.3rem;
+	height: 10%;
+	background-color: #343541;
+	border-bottom: 0.2px solid rgb(41, 41, 41);
+}
+
+.sidebar-btn {
+	display: flex;
+	align-items: center;
+}
+
+.title {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.username {
+	display: flex;
+	align-items: center;
+	justify-content: right;
+}
+
+.chat {
+	height: 90%;
+	margin-bottom: 70rem;
+	& > div {
+		width: 100%;
+		padding: 1rem;
+		color: white;
+		font-size: 1.3rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		& > p {
+			width: 80%;
+			line-height: 2.3rem;
+		}
+	}
+
+	& > .reply {
+		background-color: #444654;
+		position: relative;
+
+		& > .buttons {
+			position: absolute;
+			top: 10%;
+			right: 0%;
+
+			display: flex;
+			width: 60px;
+			justify-content: space-around;
+
+			& > * {
+				cursor: pointer;
+				margin: 3px;
+			}
+
+			@media screen and (max-width: 760px) {
+				display: block;
+				width: 40px;
+				justify-content: space-between;
+			}
+		}
+	}
+}
+
+.form--redact {
+	width: calc(100% - 250px);
+	height: auto;
+	position: fixed;
+	bottom: 0px;
+	left: 250px;
+	display: grid;
+	grid-template-columns: 2fr 1.5fr;
+	gap: 10px;
+
+	background: rgb(53, 55, 64);
+	background: linear-gradient(
+		0deg,
+		rgba(53, 55, 64, 1) 6%,
+		rgba(53, 55, 64, 0.82) 98%
+	);
+	bottom: 0;
+
+	& > .box {
+		display: flex;
+		align-items: start;
+		justify-content: center;
+		padding: 10px;
+		height: 70px;
+
+		@media screen and (max-width: 991px) {
+			height: 60px;
+		}
+	}
+
+	@media screen and (max-width: 760px) {
+		left: 0;
+		width: 100%;
+		grid-template-columns: 1fr;
+		gap: 0;
+	}
+}
+
+.input-box {
+	background-color: red;
+	display: flex;
+	box-shadow: 0px 0px 44px 5px rgba(0, 0, 0, 0.2);
+
+	width: 80%;
+	background-color: #444654;
+	height: 100%;
+	border: none;
+	outline: none;
+	color: white;
+	width: 100%;
+	font-size: 1.5rem;
+	padding: 5px 10px;
+	border-radius: 10px;
+	font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+		"Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.input-words {
+	/* background-color: red; */
+	height: 100%;
+	width: 100%;
+
+	& > .input {
+		display: flex;
+		height: 100%;
+		width: 100%;
+		align-items: center;
+		gap: 10px;
+		justify-content: center;
+	}
+
+	& input {
+		background-color: #444654;
+		height: 60%;
+		width: 65%;
+		border: none;
+		outline: none;
+		color: white;
+		padding: 2px;
+		border-radius: 5px;
+	}
+
+	& .btn-redact {
+		background-color: green;
+		color: white;
+		padding: 0.5rem 2rem;
+		font-size: 1.3rem;
+		cursor: pointer;
+		animation-name: jump;
+		animation-duration: 1s;
+		animation-iteration-count: infinite;
+	}
+}
+
+@keyframes jump {
+	from {
+		transform: scale(1.1);
+	}
+	to {
+		transform: scale(1);
+	}
+}
